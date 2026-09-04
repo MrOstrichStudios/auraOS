@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
-
-  <body>
-    <div style="border: solid; padding: 16px; width: 128px; position: absolute; top:50%; left: 50%">
-  <h1>Welcome to auraOS</h1>
-  <img src="./image.png"; style="width: 64px">
-    <p>auraOS is web-based OS used by chads in Spider-Man</p>
-  <a href="https://google.com/">gulugulu</a>
-  </div>
+<head>
+  <script type="module" src="./script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body style="font-family: Noto Sans, system-ui, sans-serif; height: 100vh; background-image: url(./image1.png); background-size: cover; background-repeat: no-repeat; margin: 0px;">
+  <div class="window" id="welcome"
+     style="top: calc(50% - 90px); left: calc(50% - 180px);">
+   <div class="windowheader" id="welcomeheader" style="backdrop-filter: blur(6px); display:flex; align-items:center;">
+  <p style="margin:0; color:#fff; font-weight:500; flex:1; text-align:center;">Welcome</p>
+  <div id="welcomeclose" class="closebutton">X</div>
+</div>
+    <p style="cursor: pointer" id="welcomeopen; color ">
+    </p>
+    <font color="white">
+    <dfn><img src="./image2.png" style="width:64px; height:64px; border-radius:50%; object-fit:cover; vertical-align:middle; margin-right:8px;"><h1 style="display:inline-block; margin:0; vertical-align:middle; color:#fff; font-weight:500;">auraOS™</h1></dfn>
+    <p style="margin: 0px; padding: 4px">
+         is a <i>web-based</i> OS built for <code>aura-farmers</code>!
+    </p>
+    </font>
+    </div>
+    <div style="position: absolute;top: 0; left: 0; width: 100%;  height: 64px; display: flex; align-items: center;  gap: 20px;box-sizing: border-box;padding: 0 16px;backdrop-filter: blur(10px);background-color: rgba(0, 0, 0, 0.125);color: #fff;z-index: 100; justify-content: space-between;">
+       <p style="margin-left: 16px; font-weight: 700; background-color: rgba(256, 256, 256, 0.125); padding: 4px 12px; border-radius: 16px;">
+    <dfn>auraOS</dfn>
+  </p>
+  <p style="margin-left: 16px; background-color: rgba(256, 256, 256, 0.25); padding: 4px 12px; border-radius: 16px;">
+    <b>Always looksmaxing</b>
+  </p>
+  <p id="timeElement" style="margin-left: 16px; background-color: rgba(256, 256, 256, 0.25); padding: 4px 12px; border-radius: 16px;"></p>
+</div>
+ <div id="desktopApps" style="padding-top: 64px; filter: blur(10)px; width: fit-content">
+  <img src="./notebook.png" style="width: 48px; height: 48px; border-radius: 16px; border-style: solid;">   
+  <p style="margin: 0px; color: #fff; font-size: 14px; text-align: center;">Notes</p>
+ </div>
 </body>
-
 </html>

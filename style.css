@@ -1,0 +1,49 @@
+/* i learned to have comments in it */
+.closebutton {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background: none;         
+  border: none;                  
+  color: #fff;             
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  padding: 4px;
+}
+
+.window {
+  border: dotted;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  position: absolute;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+.windowheader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  justify-content: space-between;
+  margin-top: 8px;
+  backdrop-filter: 6px;
+}
+
+.headertext {
+  margin: 0px;
+  color: #fff;
+  font-weight: 500
+}
+.welcomeheader{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: move;
+  justify-content:
+    center;
+  margin-top: 8px;
+  backdrop-filter: 6px;
+}
