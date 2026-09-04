@@ -3,14 +3,21 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-  background: none;          /* no red circle */
-  border: none;              /* remove border */
-  color: #fff;               /* white text */
+  background: none; /* no red circle */
+  border: none; /* remove border */
+  color: #fff; /* white text */
   font-size: 16px;
   line-height: 16px;
   text-align: center;
-  padding: 0;                /* keep it tight */
+  padding: 0; /* keep it tight */
+
+  transition: opacity 0.2s ease-in-out; /* Add transition for fade-in animation */
 }
+
+.closebutton:hover {
+  color: #fff;
+    opacity: 1;
+  }
 
 /* Window container */
 .window {
@@ -19,6 +26,7 @@
   flex-direction: column;
   border-radius: 16px;
   position: absolute;
+
   backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.125);
 }
@@ -31,23 +39,17 @@
   cursor: grab;
   justify-content: space-between;
   margin-top: 8px;
+
   backdrop-filter: blur(6px); /* corrected syntax */
 }
 
-/* Header text */
-.headertext {
-  margin: 0;
+.windowheader p.headertext {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Additional styles for welcome window header */
+#welcomeheader {
+  background-color: rgba(0, 0, 0, 0.25);
   color: #fff;
-  font-weight: 500;
-}
-
-/* Welcome header (special case) */
-.welcomeheader {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  cursor: move;
-  justify-content: center;
-  margin-top: 8px;
-  backdrop-filter: blur(6px); /* corrected syntax */
 }
