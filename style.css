@@ -14,7 +14,7 @@
 
 /* Window container */
 .window {
-  border: 1px dotted rgba(255,255,255,0.25); /* subtle dotted border */
+  border: 4px solid rgba(255,255,255,0.25); /* subtle dotted border */
   display: flex;
   flex-direction: column;
   border-radius: 16px;
