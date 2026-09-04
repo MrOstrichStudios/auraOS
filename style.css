@@ -1,19 +1,20 @@
-/* i learned to have comments in it */
+/* Close button styled as a white × */
 .closebutton {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  background: none;         
-  border: none;                  
-  color: #fff;             
+  background: none;          /* no red circle */
+  border: none;              /* remove border */
+  color: #fff;               /* white text */
   font-size: 16px;
   line-height: 16px;
   text-align: center;
-  padding: 4px;
+  padding: 0;                /* keep it tight */
 }
 
+/* Window container */
 .window {
-  border: dotted;
+  border: 1px dotted rgba(255,255,255,0.25); /* subtle dotted border */
   display: flex;
   flex-direction: column;
   border-radius: 16px;
@@ -22,6 +23,7 @@
   background-color: rgba(0, 0, 0, 0.125);
 }
 
+/* Window header bar */
 .windowheader {
   width: 100%;
   display: flex;
@@ -29,21 +31,23 @@
   cursor: grab;
   justify-content: space-between;
   margin-top: 8px;
-  backdrop-filter: 6px;
+  backdrop-filter: blur(6px); /* corrected syntax */
 }
 
+/* Header text */
 .headertext {
-  margin: 0px;
+  margin: 0;
   color: #fff;
-  font-weight: 500
+  font-weight: 500;
 }
-.welcomeheader{
+
+/* Welcome header (special case) */
+.welcomeheader {
   width: 100%;
   display: flex;
   align-items: center;
   cursor: move;
-  justify-content:
-    center;
+  justify-content: center;
   margin-top: 8px;
-  backdrop-filter: 6px;
+  backdrop-filter: blur(6px); /* corrected syntax */
 }

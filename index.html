@@ -5,33 +5,46 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body style="font-family: Noto Sans, system-ui, sans-serif; height: 100vh; background-image: url(./image1.png); background-size: cover; background-repeat: no-repeat; margin: 0px;">
-  <div class="window" id="welcome"
-     style="top: calc(50% - 90px); left: calc(50% - 180px);">
-   <div class="windowheader" id="welcomeheader" style="backdrop-filter: blur(6px); display:flex; align-items:center;">
-  <p style="margin:0; color:#fff; font-weight:500; flex:1; text-align:center;">Welcome</p>
-  <div id="welcomeclose" class="closebutton">X</div>
-</div>
-    <p style="cursor: pointer" id="welcomeopen; color ">
-    </p>
-    <font color="white">
-    <dfn><img src="./image2.png" style="width:64px; height:64px; border-radius:50%; object-fit:cover; vertical-align:middle; margin-right:8px;"><h1 style="display:inline-block; margin:0; vertical-align:middle; color:#fff; font-weight:500;">auraOS™</h1></dfn>
-    <p style="margin: 0px; padding: 4px">
-         is a <i>web-based</i> OS built for <code>aura-farmers</code>!
-    </p>
-    </font>
+
+  <!-- Welcome Window -->
+  <div class="window checklayer" id="welcome" style="top: calc(50% - 90px); left: calc(50% - 180px);">
+    <div class="windowheader" id="welcomeheader">
+      <p class="headertext" style="flex:1; text-align:center;">Welcome</p>
+      <div class="closebutton" id="welcomeclose">×</div>
     </div>
-    <div style="position: absolute;top: 0; left: 0; width: 100%;  height: 64px; display: flex; align-items: center;  gap: 20px;box-sizing: border-box;padding: 0 16px;backdrop-filter: blur(10px);background-color: rgba(0, 0, 0, 0.125);color: #fff;z-index: 100; justify-content: space-between;">
-       <p style="margin-left: 16px; font-weight: 700; background-color: rgba(256, 256, 256, 0.125); padding: 4px 12px; border-radius: 16px;">
-    <dfn>auraOS</dfn>
-  </p>
-  <p style="margin-left: 16px; background-color: rgba(256, 256, 256, 0.25); padding: 4px 12px; border-radius: 16px;">
-    <b>Always looksmaxing</b>
-  </p>
-  <p id="timeElement" style="margin-left: 16px; background-color: rgba(256, 256, 256, 0.25); padding: 4px 12px; border-radius: 16px;"></p>
-</div>
- <div id="desktopApps" style="padding-top: 64px; filter: blur(10)px; width: fit-content">
-  <img src="./notebook.png" style="width: 48px; height: 48px; border-radius: 16px; border-style: solid;">   
-  <p style="margin: 0px; color: #fff; font-size: 14px; text-align: center;">Notes</p>
- </div>
+    <div style="color:white; padding:8px;">
+      <h1 style="margin:0;">auraOS™</h1>
+      <p>is a <i>web-based</i> OS built for <code>aura-farmers</code>!</p>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:64px; display:flex; align-items:center; gap:20px; box-sizing:border-box; padding:0 16px; backdrop-filter:blur(10px); background-color:rgba(0,0,0,0.125); color:#fff; z-index:100; justify-content:space-between;">
+    <p style="margin-left:16px; font-weight:700; background-color:rgba(256,256,256,0.125); padding:4px 12px; border-radius:16px;">
+      auraOS
+    </p>
+    <p style="margin-left:16px; background-color:rgba(256,256,256,0.25); padding:4px 12px; border-radius:16px;">
+      <b>Always looksmaxing</b>
+    </p>
+    <p id="timeElement" style="margin-left:16px; background-color:rgba(256,256,256,0.25); padding:4px 12px; border-radius:16px;"></p>
+  </div>
+
+  <!-- Desktop Icon -->
+  <div id="desktopApps" style="padding-top:64px; width:fit-content; height:fit-content;">
+    <img src="./notebook.png" id="notesIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer;">
+    <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Notes</p>
+  </div>
+
+  <!-- Notes Window -->
+  <div class="window checklayer" id="notes" style="top: calc(50% - 240px); left: calc(50% - 260px); display:none;">
+    <div class="windowheader" id="notesheader">
+      <p class="headertext" style="flex:1; text-align:center;">Notes</p>
+      <div class="closebutton" id="notesclose">×</div>
+    </div>
+    <div style="margin:6px; border-radius:12px; width:420px; height:240px; padding:16px; border-style:groove; color:white;">
+      Aura Notes
+    </div>
+  </div>
+
 </body>
 </html>
