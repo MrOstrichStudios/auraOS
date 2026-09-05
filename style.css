@@ -29,6 +29,9 @@
 
   backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.125);
+
+  /* Keep windows above desktop apps but below taskbar */
+  max-height: calc(100vh - 70px);
 }
 
 /* Window header bar */
@@ -52,4 +55,277 @@
 #welcomeheader {
   background-color: rgba(0, 0, 0, 0.25);
   color: #fff;
+}
+
+/* Aura Meter app */
+#auraheader {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+#aura button {
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+#aura button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+#aura button:active {
+  transform: scale(0.95);
+}
+
+#auraRing {
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+}
+
+/* Taskbar */
+#taskbar {
+  user-select: none;
+}
+
+.taskbar-btn {
+  background-color: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.taskbar-btn:hover {
+  background-color: rgba(255,255,255,0.25);
+}
+
+.taskbar-btn:active {
+  transform: scale(0.95);
+  background-color: rgba(255,255,255,0.35);
+}
+
+/* Taskbar clock */
+#taskbarTime {
+  user-select: none;
+  min-width: 80px;
+}
+
+/* Terminal */
+#terminal {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-color: rgba(0, 255, 0, 0.25);
+}
+
+#terminal #terminalOutput {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,255,0,0.3) transparent;
+}
+
+/* Desktop apps */
+#desktopApps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+#desktopApps > div {
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 4px;
+  border-radius: 12px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  width: 72px;
+}
+
+#desktopApps > div:hover {
+  background-color: rgba(255,255,255,0.1);
+  transform: scale(1.05);
+}
+
+/* Calendar birthday banner */
+#birthdayBanner {
+  display: none;
+  background: linear-gradient(135deg, rgba(255,105,180,0.25), rgba(255,215,0,0.25));
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255,105,180,0.35);
+}
+
+/* Notes app */
+.notes-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.notes-sidebar {
+  width: 180px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255,255,255,0.08);
+  padding: 8px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.notes-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 6px 10px 6px;
+  letter-spacing: 0.5px;
+}
+
+#addNoteBtn {
+  background: rgba(255,215,0,0.15);
+  border: 1px solid rgba(255,215,0,0.4);
+  color: #FFD700;
+  border-radius: 8px;
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+#addNoteBtn:hover {
+  background: rgba(255,215,0,0.3);
+  transform: scale(1.1);
+}
+
+#addNoteBtn:active {
+  transform: scale(0.95);
+}
+
+#sidebarList {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.note-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.note-item:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.note-item.active {
+  background: rgba(255,215,0,0.15);
+  border-color: rgba(255,215,0,0.5);
+}
+
+.note-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.note-item-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.note-item-del {
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  transition: color 0.15s ease;
+}
+
+.note-item-del:hover {
+  color: #FF5555;
+}
+
+.note-item-date {
+  color: rgba(255,255,255,0.5);
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.notes-content {
+  flex: 1;
+  margin: 8px;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  background-color: rgba(255,255,255,0.05);
+  overflow: auto;
+  color: white;
+}
+
+.note-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.note-title-input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: inherit;
+  padding: 4px 2px 8px 2px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.note-title-input:focus {
+  border-bottom-color: rgba(255,215,0,0.6);
+}
+
+.note-date {
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+}
+
+.note-body {
+  flex: 1;
+  overflow-y: auto;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 4px 2px;
+  min-height: 100px;
+}
+
+.note-body:focus {
+  outline: none;
 }

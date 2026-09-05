@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="module" src="./script.js"></script>
+  <script src="./script.js" defer></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<body style="font-family: Noto Sans, system-ui, sans-serif; height: 100vh; background-image: url(./image1.png); background-size: cover; background-repeat: no-repeat; margin: 0px;">
+<body style="font-family: Noto Sans, system-ui, sans-serif; height: 100vh; background-image: url(./assets/image1.png); background-size: cover; background-repeat: no-repeat; margin: 0px; overflow: hidden;">
 
 <div class="window checklayer" id="welcome" style="top: calc(50% - 90px); left: calc(50% - 180px);">
   <div class="windowheader" id="welcomeheader">
@@ -12,7 +12,7 @@
     <div class="closebutton" id="welcomeclose">×</div>
   </div>
   <div style="color:white; padding:8px; display:flex; align-items:center; gap:8px;">
-    <img src="./image2.png" style="width:48px; height:48px; border-radius:50%; object-fit:cover;">
+    <img src="./assets/image2.png" style="width:48px; height:48px; border-radius:50%; object-fit:cover;">
     <h1 style="margin:0;">auraOS™</h1>
   </div>
   <p style="color:white; margin:0; padding:4px;">
@@ -20,34 +20,132 @@
   </p>
 </div>
 
-<div style="position:absolute; top:0; left:0; width:100%; height:64px; display:flex; align-items:center; gap:20px; box-sizing:border-box; padding:0 16px; backdrop-filter:blur(10px); background-color:rgba(0,0,0,0.125); color:#fff; z-index:100; justify-content:space-between;">
-  <p style="margin-left:16px; font-weight:700; background-color:rgba(256,256,256,0.125); padding:4px 12px; border-radius:16px;">
-    auraOS
-  </p>
-  <p style="margin-left:16px; background-color:rgba(256,256,256,0.25); padding:4px 12px; border-radius:16px;">
-    <b>Always looksmaxing</b>
-  </p>
-  <p id="timeElement" style="margin-left:16px; background-color:rgba(256,256,256,0.25); padding:4px 12px; border-radius:16px;"></p>
+<div id="desktopApps" style="padding-top:64px; width:fit-content; height:fit-content; display:flex; gap:24px;">
+  <div style="text-align:center; cursor:pointer;">
+    <img src="./assets/note.png" id="notesIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer; filter:grayscale(1);">
+    <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Notes</p>
+  </div>
+  <div style="text-align:center; cursor:pointer;">
+    <img src="./assets/aura-icon.svg" id="auraIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer;">
+    <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Aura Meter</p>
+  </div>
+  <div style="text-align:center; cursor:pointer;">
+    <img src="./assets/calendar-icon.svg" id="calendarIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer; filter:grayscale(1);">
+    <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Calendar</p>
+  </div>
+  <div style="text-align:center; cursor:pointer;">
+    <img src="./assets/files-icon.svg" id="filesIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer; filter:grayscale(1);">
+    <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Files</p>
+  </div>
+  <div style="text-align:center; cursor:pointer;">
+    <img src="./assets/terminal-icon.svg" id="terminalIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer; filter:grayscale(1);">
+    <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Terminal</p>
+  </div>
 </div>
 
-<div id="desktopApps" style="padding-top:64px; width:fit-content; height:fit-content;">
-  <img src="./note.png" id="notesIcon" style="width:48px; height:48px; border-radius:16px; border-style:solid; cursor:pointer;">
-  <p style="margin:0; color:#fff; font-size:14px; text-align:center;">Notes</p>
+<div class="window checklayer" id="terminal" style="top: calc(50% - 220px); left: calc(50% - 260px); display:none; width:520px; height:340px;">
+  <div class="windowheader" id="terminalheader">
+    <p class="headertext" style="flex:1; text-align:center; color:white;">Terminal</p>
+    <div class="closebutton" id="terminalclose">×</div>
+  </div>
+  <div id="terminalOutput" style="flex:1; overflow-y:auto; padding:8px; font-family:Consolas, monospace; font-size:14px; color:#00FF00; white-space:pre-wrap;"></div>
+  <div style="display:flex; align-items:center; padding:4px 8px 8px 8px; font-family:Consolas, monospace; font-size:14px; color:#00FF00;">
+    <span id="terminalPrompt" style="margin-right:4px;">guest@auraOS:~$</span>
+    <input id="terminalInput" style="flex:1; background:none; border:none; outline:none; color:#00FF00; font-family:Consolas, monospace; font-size:14px;" autocomplete="off" spellcheck="false">
+  </div>
 </div>
 
-<div class="window checklayer" id="notes" style="top: calc(50% - 240px); left: calc(50% - 260px); display:none;">
+<div class="window checklayer" id="notes" style="top: calc(50% - 260px); left: calc(50% - 280px); display:none; width:600px; height:440px;">
   <div class="windowheader" id="notesheader">
-    <p class="headertext" style="flex:1; text-align:center; color:white;">Notes</p>
+    <p class="headertext" style="flex:1; text-align:center; color:white;">📝 Aura Notes</p>
     <div class="closebutton" id="notesclose">×</div>
   </div>
-  <div style="display:flex;">
-    <div id="sidebar" 
-         style="width:120px; backdrop-filter:blur(6px); background-color:rgba(255,255,255,0.1); padding:8px; overflow-y:auto;">
+  <div class="notes-layout">
+    <div class="notes-sidebar">
+      <div class="notes-sidebar-top">
+        <span>My Notes</span>
+        <button id="addNoteBtn" title="Add note">＋</button>
+      </div>
+      <div id="sidebarList"></div>
     </div>
-    <div id="notesContent" 
-         style="flex:1; margin:6px; border-radius:12px; padding:16px; border-style:groove; backdrop-filter:blur(12px); background-color:rgba(255,255,255,0.05); overflow:auto; color:white;">
+    <div id="notesContent" class="notes-content"></div>
+  </div>
+</div>
+
+<div class="window checklayer" id="aura" style="top: calc(50% - 220px); left: calc(50% - 180px); display:none; width:360px;">
+  <div class="windowheader" id="auraheader">
+    <p class="headertext" style="flex:1; text-align:center; color:white;">Aura Meter</p>
+    <div class="closebutton" id="auraclose">×</div>
+  </div>
+  <div style="padding:16px; display:flex; flex-direction:column; align-items:center; gap:12px; color:white;">
+    <div id="auraRing" style="width:160px; height:160px; border-radius:50%; background:conic-gradient(#FFD700 0%, #FFA500 0%, rgba(255,255,255,0.1) 0%); display:flex; align-items:center; justify-content:center; transition: background 0.5s ease;">
+      <div style="width:120px; height:120px; border-radius:50%; background:rgba(0,0,0,0.6); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <span id="auraScore" style="font-size:36px; font-weight:bold;">0</span>
+        <span style="font-size:12px; opacity:0.7;">aura pts</span>
+      </div>
+    </div>
+    <div id="auraRank" style="font-size:18px; font-weight:bold; color:#FFD700;">NO AURA</div>
+    <div style="display:flex; gap:8px;">
+      <button id="auraPlus" style="padding:8px 20px; border-radius:12px; border:none; background:#FFD700; color:#1a1a2e; font-weight:bold; cursor:pointer; font-size:16px;">+ Aura</button>
+      <button id="auraMinus" style="padding:8px 20px; border-radius:12px; border:none; background:rgba(255,255,255,0.15); color:#fff; font-weight:bold; cursor:pointer; font-size:16px;">- Aura</button>
+      <button id="auraReset" style="padding:8px 20px; border-radius:12px; border:none; background:rgba(255,255,255,0.15); color:#fff; cursor:pointer; font-size:16px;">Reset</button>
     </div>
   </div>
 </div>
+
+<div class="window checklayer" id="calendar" style="top: calc(50% - 240px); left: calc(50% - 240px); display:none; width:360px;">
+  <div class="windowheader" id="calendarheader">
+    <p class="headertext" style="flex:1; text-align:center; color:white;">Calendar</p>
+    <div class="closebutton" id="calendarclose">×</div>
+  </div>
+  <div style="padding:12px; color:white;">
+    <div id="calHeader" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+      <button id="calPrev" style="background:rgba(255,255,255,0.15); border:none; color:#fff; border-radius:8px; cursor:pointer; padding:4px 12px; font-size:16px;">◀</button>
+      <span id="calMonthYear" style="font-weight:bold; font-size:18px;"></span>
+      <button id="calNext" style="background:rgba(255,255,255,0.15); border:none; color:#fff; border-radius:8px; cursor:pointer; padding:4px 12px; font-size:16px;">▶</button>
+    </div>
+    <div id="calDow" style="display:grid; grid-template-columns:repeat(7,1fr); text-align:center; font-size:12px; opacity:0.7; margin-bottom:4px;"></div>
+    <div id="calGrid" style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; text-align:center;"></div>
+  </div>
+</div>
+
+<div class="window checklayer" id="files" style="top: calc(50% - 230px); left: calc(50% - 220px); display:none; width:440px;">
+  <div class="windowheader" id="filesheader">
+    <p class="headertext" style="flex:1; text-align:center; color:white;">Files</p>
+    <div class="closebutton" id="filesclose">×</div>
+  </div>
+  <div style="display:flex; min-height:220px;">
+    <div id="fileList" style="width:140px; backdrop-filter:blur(6px); background-color:rgba(255,255,255,0.1); padding:8px; overflow-y:auto;">
+    </div>
+    <div id="fileContent" style="flex:1; margin:6px; border-radius:12px; padding:16px; border-style:groove; backdrop-filter:blur(12px); background-color:rgba(255,255,255,0.05); overflow:auto; color:white; font-size:14px; white-space:pre-wrap;">
+    </div>
+  </div>
+</div>
+
+<!-- Aura Video overlay -->
+<div id="auraVideoOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#000; align-items:center; justify-content:center; z-index:9999;">
+  <video id="auraVideo" src="./assets/aura.mp4" style="width:100vw; height:100vh; object-fit:cover;" autoplay muted playsinline></video>
+  <button id="auraVideoClose" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); color:#fff; border-radius:12px; padding:8px 16px; cursor:pointer; font-size:14px; z-index:10000;">✕ Close</button>
+</div>
+
+<!-- Taskbar -->
+<div id="taskbar" style="position:absolute; bottom:0; left:0; right:0; height:56px; display:flex; align-items:center; gap:8px; padding:0 12px; backdrop-filter:blur(10px); background-color:rgba(0,0,0,0.6); color:#fff; z-index:500; box-sizing:border-box; border-top:1px solid rgba(255,255,255,0.15);">
+  <p style="margin:0; font-weight:700; background-color:rgba(256,256,256,0.125); padding:4px 12px; border-radius:16px; font-size:13px;">
+    auraOS
+  </p>
+  <p style="margin:0; background-color:rgba(256,256,256,0.25); padding:4px 12px; border-radius:16px; font-size:13px;">
+    <b>Always looksmaxing</b>
+  </p>
+  <div style="flex:1;"></div>
+  <button class="taskbar-btn" id="taskbarNotes">Notes</button>
+  <button class="taskbar-btn" id="taskbarAura">Aura Meter</button>
+  <button class="taskbar-btn" id="taskbarCalendar">Calendar</button>
+  <button class="taskbar-btn" id="taskbarFiles">Files</button>
+  <button class="taskbar-btn" id="taskbarTerminal">Terminal</button>
+  <div style="flex:1;"></div>
+  <p id="taskbarTime" style="margin:0; background-color:rgba(256,256,256,0.25); padding:4px 12px; border-radius:16px; font-size:13px; text-align:right; line-height:1.3;"></p>
+  <button class="taskbar-btn" id="taskbarRestart" style="background-color:rgba(200,50,50,0.4);">Restart</button>
+</div>
+
 </body>
 </html>
