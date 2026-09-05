@@ -119,7 +119,7 @@ function runCommand(cmd) {
       }, 1000);
       break;
     case "about":
-      printToTerminal("auraOS (tm)");
+      printToTerminal("auraOS™");
       printToTerminal("version 1.0");
       printToTerminal("");
       printToTerminal("developed by - me (MrOstrichStudios)");
@@ -129,7 +129,9 @@ function runCommand(cmd) {
       printToTerminal("assets:");
       printToTerminalWithLinks("  notes icon - https://au.pinterest.com/pin/7177680647744158/");
       printToTerminalWithLinks("  aura video - https://www.youtube.com/watch?v=v_4KBXP3Mts");
-      printToTerminal("");
+      printToTerminal("  wallpaper - https://www.boredpanda.com/giga-chad-meme/");
+      printToTerminal("  welcome image - https://coinmarketcap.com/currencies/gigachad-meme/");
+      printToTerminal(" ");
       printToTerminal("coding assistance from ChatGPT, Copilot and Cline (vibecodin)");
       printToTerminal("");
       break;

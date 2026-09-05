@@ -1,3 +1,4 @@
 {
-    "extensions.supportNodeGlobalNavigator": true
+    "extensions.supportNodeGlobalNavigator": true,
+    "liveServer.settings.port": 5501
 }
